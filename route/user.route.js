@@ -1,7 +1,8 @@
 import { Router } from 'express'
 import { forgotPasswordController, loginController, logoutController, refreshToken, registerUserController, resetpassword, updateUserDetails, uploadAvatar, userDetails, verifyEmailController, verifyForgotPasswordOtp } from '../controllers/user.controller.js'
-import auth from './middleware/auth.js'
-import upload from './middleware/multer.js'
+import auth from '../middleware/auth.js'
+import upload from '../middleware/multer.js'
+
 // import auth from '../middleware/auth.js'
 // import upload from '../middleware/multer.js'
 
