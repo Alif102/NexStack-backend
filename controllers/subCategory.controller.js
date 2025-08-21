@@ -2,17 +2,21 @@ import SubCategoryModel from "../models/subCategory.model.js"
 
 export const AddSubCategoryController = async(request,response)=>{
     try {
-        const { name, image } = request.body 
+        const { name, image, category } = request.body 
 
-        if(!name && !image  ){
+        if(!name && !image && !category[0] ){
             return response.status(400).json({
-                message : "Provide name, image",
+                message : "Provide name, image, category",
                 error : true,
                 success : false
             })
         }
 
-      
+        const payload = {
+            name,
+            image,
+            category
+        }
 
         const createSubCategory = new SubCategoryModel(payload)
         const save = await createSubCategory.save()
@@ -53,7 +57,7 @@ export const getSubCategoryController = async(request,response)=>{
 
 export const updateSubCategoryController = async(request,response)=>{
     try {
-        const { _id, name, image } = request.body 
+        const { _id, name, image,category } = request.body 
 
         const checkSub = await SubCategoryModel.findById(_id)
 
@@ -65,7 +69,11 @@ export const updateSubCategoryController = async(request,response)=>{
             })
         }
 
-      
+        const updateSubCategory = await SubCategoryModel.findByIdAndUpdate(_id,{
+            name,
+            image,
+            category
+        })
 
         return response.json({
             message : 'Updated Successfully',
