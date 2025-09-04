@@ -41,7 +41,7 @@ export const addAddressController = async(request,response)=>{
 
 export const getAddressController = async(request,response)=>{
     try {
-        const userId = request.userId // middleware auth
+        const userId = request.userId // middleware auth....
 
         const data = await AddressModel.find({ userId : userId }).sort({ createdAt : -1})
 
