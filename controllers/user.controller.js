@@ -309,7 +309,7 @@ export async function forgotPasswordController(request,response) {
 
         await sendEmail({
             sendTo : email,
-            subject : "Forgot password from NexWear",
+            subject : "Forgot password from NexStack",
             html : forgotPasswordTemplate({
                 name : user.name,
                 otp : otp
