@@ -1,5 +1,5 @@
 import UserModel from "../models/user.model.js"
-
+// admin
 export const admin = async(request,response,next)=>{
     try {
        const  userId = request.userId
