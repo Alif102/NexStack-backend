@@ -18,10 +18,13 @@ dotenv.config();
 
 const app = express();
 
-app.use(cors({ credentials: true, origin: process.env.FRONTEND_URL }))
+app.use(cors({ credentials: true,  origin: [
+      
+       "https://nex-stack-sphere.vercel.app"  , "http://localhost:5173"
+    ], }))
 app.use(express.json()) 
 app.use(cookieParser()) 
-app.use(morgan('dev')) // ✅ specify format to remove warning
+app.use(morgan('dev')) // specify format to remove warning
 app.use(helmet({ crossOriginResourcePolicy: false }))
   
 const PORT = process.env.PORT || 8080;
