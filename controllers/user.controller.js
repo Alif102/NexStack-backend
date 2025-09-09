@@ -239,7 +239,7 @@ export async  function uploadAvatar(request,response){
 
     } catch (error) {
         return response.status(500).json({
-            message : 'errrr',
+            message : error.message || error,
             error : true,
             success : false
         })
